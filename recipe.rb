@@ -3,11 +3,11 @@
 arg = ARGV
 
 # 引数がない
-if !arg
+if arg.size == 0
   puts 'オムライス'
 
 elsif arg[0] == 'recipe-data.txt'
-  
+
   select_id = arg[1]
   recipe_id = 1
 
@@ -16,11 +16,11 @@ elsif arg[0] == 'recipe-data.txt'
     recipe_id += 1
   end
 
-# 登録するやつ
+  # 登録するやつ
 elsif arg[0] == 'spec4'
-  
+
   io = open('recipe-data.txt','w')
-  
+
   recipes = ['オムライス','親子丼','杏仁豆腐']
   recipes.each do |recipe, index|
     io.puts "#{recipe}"
