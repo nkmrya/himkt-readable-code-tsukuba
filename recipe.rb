@@ -2,25 +2,28 @@
 
 arg = ARGV
 
-recipes = ['オムライス','親子丼','杏仁豆腐']
-explains = {
-  1=>'卵を焼いてごはんにのせる',
-  2=>'鶏肉を焼いて卵でとじてごはんにのせる',
-  3=>'牛乳と砂糖をまぜてゼラチンで固める'
-}
-
 # 引数がない
 if arg.size == 0
   puts 'オムライス'
 
 # 引数がファイル名
-elsif arg[0] == 'recipe-data.txt'
-  
-  select_id = arg[1]
+else
+  spec = arg.last
+
+  if spec == 'spec8'
+    user_name = arg[0]
+    file_path = arg[1]
+    select_id = arg[2] if arg.length == 4
+  else
+    file_path = arg[0]
+    select_id = arg[1]
+  end
   recipe_id = 1
 
-  File.foreach('./recipe-data.txt') do |line|
-    if arg[1] = 'spec7'
+  puts "ユーザー名: #{user_name}" if user_name
+  File.foreach(file_path) do |line|
+
+    if spec == 'spec7'
       puts "#{recipe_id}: #{line.chomp} #{explains[recipe_id]}"
     else
       puts "#{recipe_id}: #{line}" if !select_id || select_id == recipe_id.to_s
@@ -28,18 +31,4 @@ elsif arg[0] == 'recipe-data.txt'
 
     recipe_id += 1
   end
-
-# 引数が仕様4
-elsif arg[0] == 'spec4'
-
-  io = open('recipe-data.txt','w')
-  recipes.each do |recipe, index|
-    io.puts "#{recipe}"
-  end
-  io.close
-  File.foreach('./recipe-data.txt') do |line|
-    puts line
-  end
-
 end
-

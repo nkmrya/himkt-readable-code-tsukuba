@@ -39,6 +39,12 @@ ruby recipe.rb recipe-data.txt <id>
 ruby recipe.rb recipe-data.txt spec7
 ```
 
+## 仕様8
+
+```shell
+ruby recipe.rb user_name recipe-data.txt [id] spec8
+```
+
 
 ## メモ
 実際のコードとリーダブルだと思っているかの説明
