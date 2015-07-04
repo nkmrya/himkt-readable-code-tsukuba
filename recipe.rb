@@ -2,6 +2,7 @@
 
 arg = ARGV
 
+recipes = ['オムライス','親子丼','杏仁豆腐']
 explains = {
   1=>'卵を焼いてごはんにのせる',
   2=>'鶏肉を焼いて卵でとじてごはんにのせる',
@@ -19,10 +20,10 @@ elsif arg[0] == 'recipe-data.txt'
   recipe_id = 1
 
   File.foreach('./recipe-data.txt') do |line|
-    if arg[1] != 'spec7'
-      puts "#{recipe_id}: #{line}" if !select_id || select_id == recipe_id.to_s
-    else
+    if arg[1] = 'spec7'
       puts "#{recipe_id}: #{line.chomp} #{explains[recipe_id]}"
+    else
+      puts "#{recipe_id}: #{line}" if !select_id || select_id == recipe_id.to_s
     end
 
     recipe_id += 1
@@ -31,7 +32,6 @@ elsif arg[0] == 'recipe-data.txt'
 # 引数が仕様4
 elsif arg[0] == 'spec4'
 
-  recipes = ['オムライス','親子丼','杏仁豆腐']
   io = open('recipe-data.txt','w')
   recipes.each do |recipe, index|
     io.puts "#{recipe}"
