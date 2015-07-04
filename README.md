@@ -17,6 +17,11 @@ ruby recipe.rb
 ruby recipe.rb recipe-data.txt
 ```
 
+## 仕様4
+```shell
+ruby recipe.rb recipe-data.txt
+```
+
 ## 仕様6
 
 ```shell
