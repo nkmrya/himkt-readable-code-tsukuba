@@ -36,7 +36,7 @@ ruby recipe.rb recipe-data.txt <id>
 ## 仕様7
 
 ```shell
-ruby recipe.rb spec7
+ruby recipe.rb recipe-data.txt spec7
 ```
 
 
