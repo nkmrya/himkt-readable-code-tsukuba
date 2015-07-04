@@ -25,7 +25,7 @@ ruby recipe.rb recipe-data.txt
 ## 仕様6
 
 ```shell
-ruby recipe.rb <id>
+ruby recipe.rb recipe-data.txt <id>
 ```
 
 ## 仕様7

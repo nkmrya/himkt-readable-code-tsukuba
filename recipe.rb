@@ -5,6 +5,7 @@ arg = ARGV
 # 引数がない
 if !arg
   puts 'オムライス'
+
 elsif arg[0] == 'recipe-data.txt'
   
   select_id = arg[1]
@@ -15,14 +16,15 @@ elsif arg[0] == 'recipe-data.txt'
     recipe_id += 1
   end
 
+# 登録するやつ
 elsif arg[0] == 'spec4'
   
-  recipes = ['オムライス','親子丼','杏仁豆腐']
+  io = open('recipe-data.txt','w')
   
-  open('recipe-data.txt','w') do |output|
-    
-    recipes.each do |recipe, index|
-      output.puts "#{recipe}"
-    end
+  recipes = ['オムライス','親子丼','杏仁豆腐']
+  recipes.each do |recipe, index|
+    io.puts "#{recipe}"
   end
+
+  io.close
 end
