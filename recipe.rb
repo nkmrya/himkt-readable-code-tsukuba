@@ -11,7 +11,7 @@ def spec3
 end
 
 def spec4
-  
+
   # レシピ
   recipes = [
     'オムライス',
@@ -25,7 +25,7 @@ def spec4
       out.puts recipe
     end
   end
-  
+
   # 出力
   spec3
 end
@@ -49,19 +49,34 @@ def spec6
 end
 
 def spec7
+  explain = {1=>'卵を焼いてごはんにのせる', 2=>'鶏肉を焼いて卵でとじてごはんにのせる', 3=>'牛乳と砂糖をまぜてゼラチンで固める'}
+  File.foreach('./recipe-data.txt') do |line|
+    puts "#{id}:#{line.chomp} #{explain[id]}"
+    id+=1
+  end
 end
 
 
 
 id = 1
-select_id = ARGV[0].to_i if ARGV[0]
-File.foreach('./recipe-data.txt') do |line|
-  puts "#{id}:#{line}" unless select_id
-  puts "#{id}:#{line}" if select_id == id
-  id+=1
+
+
+if ARGV[0].to_i != 0
+
+  select_id = ARGV[0].to_i if ARGV[0]
+  File.foreach('./recipe-data.txt') do |line|
+    puts "#{id}:#{line}" unless select_id
+    puts "#{id}:#{line}" if select_id == id
+    id+=1
+  end
+
+elsif ARGV[0] == 'spec7'
+
+  explain = {1=>'卵を焼いてごはんにのせる', 2=>'鶏肉を焼いて卵でとじてごはんにのせる', 3=>'牛乳と砂糖をまぜてゼラチンで固める'}
+  File.foreach('./recipe-data.txt') do |line|
+    puts "#{id}:#{line.chomp} #{explain[id]}"
+    id+=1
+  end
+
 end
-
-
-
-
 

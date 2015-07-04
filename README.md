@@ -17,6 +17,11 @@ ruby recipe.rb 1
 ruby recipe.rb <id>
 ```
 
+## 仕様7
+
+```shell
+ruby recipe.rb spec7
+```
 
 
 ## メモ
