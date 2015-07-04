@@ -50,17 +50,27 @@ end
 
 def spec7
   explain = {1=>'卵を焼いてごはんにのせる', 2=>'鶏肉を焼いて卵でとじてごはんにのせる', 3=>'牛乳と砂糖をまぜてゼラチンで固める'}
-  File.foreach('./recipe-data.txt') do |line|
+File.foreach('./recipe-data.txt') do |line|
     puts "#{id}:#{line.chomp} #{explain[id]}"
     id+=1
   end
 end
 
 
-arg = ARGV[0]
+arg = ARGV
 
 # 引数がない
-unless arg
+if !arg
   puts 'オムライス'
-elsif arg == ''
+elsif arg[0] == 'recipe-data.txt'
+  File.foreach('./recipe-data.txt') do |line|
+    puts line
+  end
+elsif arg[0] == 'spec4'
+  recipes = ['オムライス','親子丼','杏仁豆腐']
+  open('recipe-data.txt','w') do |output|
+    recipes.each do |recipe|
+      output.puts recipe
+    end
+  end
 end
