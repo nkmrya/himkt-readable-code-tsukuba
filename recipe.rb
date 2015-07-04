@@ -57,26 +57,10 @@ def spec7
 end
 
 
+arg = ARGV[0]
 
-id = 1
-
-
-if ARGV[0].to_i != 0
-
-  select_id = ARGV[0].to_i if ARGV[0]
-  File.foreach('./recipe-data.txt') do |line|
-    puts "#{id}:#{line}" unless select_id
-    puts "#{id}:#{line}" if select_id == id
-    id+=1
-  end
-
-elsif ARGV[0] == 'spec7'
-
-  explain = {1=>'卵を焼いてごはんにのせる', 2=>'鶏肉を焼いて卵でとじてごはんにのせる', 3=>'牛乳と砂糖をまぜてゼラチンで固める'}
-  File.foreach('./recipe-data.txt') do |line|
-    puts "#{id}:#{line.chomp} #{explain[id]}"
-    id+=1
-  end
-
+# 引数がない
+unless arg
+  puts 'オムライス'
+elsif arg == ''
 end
-

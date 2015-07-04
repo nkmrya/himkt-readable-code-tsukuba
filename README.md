@@ -8,7 +8,7 @@
 
 ターミナル・コマンドプロンプトでこのリポジトリが存在するディレクトリに移動！
 ```shell
-ruby recipe.rb 1
+ruby recipe.rb
 ```
 
 ## 仕様6
