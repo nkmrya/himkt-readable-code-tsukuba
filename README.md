@@ -19,6 +19,11 @@ ruby recipe.rb recipe-data.txt
 
 ## 仕様4
 ```shell
+ruby recipe.rb spec4
+```
+
+## 仕様5
+```shell
 ruby recipe.rb recipe-data.txt
 ```
 
